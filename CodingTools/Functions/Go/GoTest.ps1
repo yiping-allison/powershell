@@ -17,10 +17,10 @@ Function GoTest {
 		GoTest
 	
 	.EXAMPLE
-		GoTest -CO "TestName -v"
+		GoTest TestName -v
 
 	.EXAMPLE
-		GoTest -CO "-v"
+		GoTest -v
 	
 	.FUNCTIONALITY
 		Run go test tool and color test output
@@ -31,17 +31,14 @@ Function GoTest {
 		Date Created: 17 March 2020
 	#>
 
-	[CmdletBinding()]
-	param(
-		[Parameter( Mandatory = $false,
-		ParameterSetName = "CO" )]
-		[String]
-		$CommandOptions
-	)
-
 	Begin {
-		if ($CommandOptions) {
-			$test = "go test $CommandOptions" | Invoke-Expression
+		if ($args.Length -ne 0) {
+			$optionals = ''
+			foreach($arg in $args) {
+				$optionals = $optionals + $arg + ' '
+			}
+			$cmd = "go test " + $optionals
+			$test = $cmd | Invoke-Expression
 		} else {
 			$test = "go test" | Invoke-Expression
 		}
