@@ -48,21 +48,24 @@ Function GoTest {
 	}
 
 	Process {
-		$test | Format-Color @{'PASS' = 'Green'; 'FAIL' = 'red'; '.go:' = 'yellow'}
+		$test | Format-Color @{'.go:[0-9]+:' = 'yellow'; 'PASS' = 'Green'; 'FAIL' = 'red'}
 	}
 }
 
-function Format-Color([hashtable] $Colors = @{}, [switch] $SimpleMatch) {
+function Format-Color([hashtable] $Colors = @{}) {
 	<#
 	.NOTES
 		Author: https://www.bgreco.net/powershell/
+		Modified by: Yiping (Allison) Su
 	#>
 	$lines = ($input | Out-String) -replace "`r", "" -split "`n"
 	foreach($line in $lines) {
 		$color = ''
 		foreach($pattern in $Colors.Keys){
-			if(!$SimpleMatch -and $line -match $pattern) { $color = $Colors[$pattern] }
-			elseif ($SimpleMatch -and $line -like $pattern) { $color = $Colors[$pattern] }
+			if($line -match $pattern) { 
+				$color = $Colors[$pattern]
+				break
+			}
 		}
 		if($color) {
 			Write-Host -ForegroundColor $color $line
