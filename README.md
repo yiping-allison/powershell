@@ -21,6 +21,6 @@ To check all available commands of the module, use:
 ## Documentation
 
 | Go Command Type           | PowerShell Command    | Documentation                            |
-|:--------------------------|:----------------------|:-----------------------------------------|
+|:--------------------------|:----------------------|:----------------------------------------:|
 | Go Coverage Testing       | `GoCover`             | [:book:](Documentation/go_cover.md)      |
 | Go Testing                | `GoTest`              | [:book:](Documentation/go_test.md)       |
