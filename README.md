@@ -18,7 +18,7 @@ can still use bash equivalent scripts on [WSL](https://docs.microsoft.com/en-us/
 
 Clone or download the folder `CodingTools` and place it in either:
 
-1. `C:\Users\%username%\Documents\WindowsPowerShell\Modules\`
+1. `C:\Users\%username%\Documents\WindowsPowerShell\Modules`
 2. `C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules`
 
 Before using the module, import it using: `Import-Module CodingTools`.
@@ -32,7 +32,7 @@ To check all available commands of the module, use:
 
 ### Golang
 
-| Command Type              | PowerShell Command    | Documentation                            |
-|:--------------------------|:----------------------|:----------------------------------------:|
-| Go Coverage Testing       | `GoCover`             | [:book:](Documentation/go_cover.md)      |
-| Go Testing                | `GoTest`              | [:book:](Documentation/go_test.md)       |
+| Command Type              | PowerShell Command    | Summary                          | Documentation                         |
+|:--------------------------|:----------------------|:---------------------------------|:-------------------------------------:|
+| Go Coverage Testing       | `GoCover`             | Chain and auto-clean `go cover`  | [:book:](Documentation/go_cover.md)   |
+| Go Testing                | `GoTest`              | Colorize `go test` output        | [:book:](Documentation/go_test.md)    |
