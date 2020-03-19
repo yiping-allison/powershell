@@ -17,7 +17,7 @@ Function GoTest {
 		GoTest
 	
 	.EXAMPLE
-		GoTest TestName -v
+		GoTest -run TestName -v
 
 	.EXAMPLE
 		GoTest -v
@@ -59,12 +59,12 @@ function Format-Color([hashtable] $Colors = @{}) {
 	foreach($line in $lines) {
 		$color = ''
 		foreach($pattern in $Colors.Keys){
-			if($line -match $pattern) { 
+			if ($line -match $pattern) { 
 				$color = $Colors[$pattern]
 				break
 			}
 		}
-		if($color) {
+		if ($color) {
 			Write-Host -ForegroundColor $color $line
 		} else {
 			Write-Host $line
